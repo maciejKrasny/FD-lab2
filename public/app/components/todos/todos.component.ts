@@ -23,13 +23,13 @@ export class TodosComponent implements OnInit {
   ngOnInit() {
     this.data.currentTodos.subscribe(todos => {
       console.log("jestem", todos)
-      // if (this.todoCondition === 'done') {
-      //   this.todos = todos.filter((todo: Todo) => todo.done);
-      // } else if (this.todoCondition === 'todo') {
-      //   this.todos = todos.filter((todo: Todo) => !todo.done);
-      // } else {
+      if (this.todoCondition === 'done') {
+        this.todos = todos.filter((todo: Todo) => todo.done);
+      } else if (this.todoCondition === 'todo') {
+        this.todos = todos.filter((todo: Todo) => !todo.done);
+      } else {
         this.todos = todos;
-      // }
+      }
     })
     // this.todos = [];
     // this.todosFiltered = [];

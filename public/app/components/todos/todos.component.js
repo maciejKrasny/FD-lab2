@@ -19,13 +19,15 @@ var TodosComponent = /** @class */ (function () {
         var _this = this;
         this.data.currentTodos.subscribe(function (todos) {
             console.log("jestem", todos);
-            // if (this.todoCondition === 'done') {
-            //   this.todos = todos.filter((todo: Todo) => todo.done);
-            // } else if (this.todoCondition === 'todo') {
-            //   this.todos = todos.filter((todo: Todo) => !todo.done);
-            // } else {
-            _this.todos = todos;
-            // }
+            if (_this.todoCondition === 'done') {
+                _this.todos = todos.filter(function (todo) { return todo.done; });
+            }
+            else if (_this.todoCondition === 'todo') {
+                _this.todos = todos.filter(function (todo) { return !todo.done; });
+            }
+            else {
+                _this.todos = todos;
+            }
         });
         // this.todos = [];
         // this.todosFiltered = [];
