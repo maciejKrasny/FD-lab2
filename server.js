@@ -33,7 +33,6 @@ var Todo = mongoose.model('Todo', {
 app.get('/api/todos', function(req, res) {
   Todo.find(function(err, todos) {
     if (err) res.send(err);
-    console.log(todos)
     res.json(todos);
   })
 });
@@ -72,7 +71,6 @@ app.put("/api/todos/:todo_id", function(req, res) {
     },
     function(err, todo) {
       if (err) res.send(err);
-
       Todo.find(function(err, todos) {
         if (err) res.send(err);
         res.json(todos);

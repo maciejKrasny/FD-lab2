@@ -6,7 +6,7 @@ import { TodoService } from './todo.service';
 @Injectable({
   providedIn: 'root',
 })
-export class DataService  {
+export class DataService {
   private todosSource = new BehaviorSubject<Todo[]>([]);
   currentTodos = this.todosSource.asObservable();
 
@@ -14,7 +14,7 @@ export class DataService  {
     this.todoService.getTodos().subscribe(todos => {
       this.todosSource.next(todos);
     });
-   }
+  }
 
   deleteTodo(todo: Todo) {
     let todos = this.todosSource.getValue();
@@ -45,14 +45,13 @@ export class DataService  {
     let todos = this.todosSource.getValue();
     this.todoService.updateTodo(todo)
       .subscribe(data => {
-        if (data.n === 1) {
-          for (let i = 0; i < todos.length; i++) {
-            if (todos[i]._id === todo._id) {
-              todos[i] = todo;
-            }
-          }
-          this.todosSource.next(todos);
-        }
+        // console.log(data)
+        // for (let i = 0; i < todos.length; i++) {
+        //   if (todos[i]._id === todo._id) {
+        //     todos[i] = data;
+        //   }
+        // }
+        this.todosSource.next(data);
       })
   }
 }

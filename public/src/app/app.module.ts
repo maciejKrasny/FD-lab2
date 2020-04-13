@@ -7,11 +7,12 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tabs/tab.component';
 import {DataService} from "./services/data.service";
 import {TodoService} from "./services/todo.service";
+import { TodoFormComponent } from './components/todoForm/todoForm.component';
 
 
 @NgModule({
   imports:      [ BrowserModule, HttpClientModule ],
-  declarations: [AppComponent, TodosComponent, TabsComponent, TabComponent],
+  declarations: [AppComponent, TodoFormComponent, TodosComponent, TabsComponent, TabComponent],
   bootstrap: [AppComponent],
   providers: [DataService, TodoService]
 })
